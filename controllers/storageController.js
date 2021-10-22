@@ -18,7 +18,7 @@ exports.postStatus = function(req, res){
         } else {
             foundStorage.availableStorage = req.body.availableStorage;
             await foundStorage.save();
-            res.redirect("/");
+            res.redirect("/status");
         }
     });
 }

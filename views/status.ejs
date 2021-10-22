@@ -13,7 +13,7 @@
         <p>total storage: <%= storage.totalStorage %></p>
         <p>available storage: <%= storage.availableStorage %></p>
     <% }); %>
-    <form action="/" method="POST">
+    <form action="/status" method="POST">
         <input name="availableStorage" type="number" placeholder="change available storage">
     <button type="submit">Submit!</button>
     </form>
