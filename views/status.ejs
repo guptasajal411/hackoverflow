@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <% foundStorages.forEach(function(storage){ %>
+        <h2><%= storage.storageName %></h2>
+        <p>total storage: <%= storage.totalStorage %></p>
+        <p>available storage: <%= storage.availableStorage %></p>
+    <% }); %>
+    <form action="/" method="POST">
+        <input name="availableStorage" type="number" placeholder="change available storage">
+    <button type="submit">Submit!</button>
+    </form>
+</body>
+</html>
