@@ -1,4 +1,5 @@
 const storageModel = require("../models/storageModel.js");
+const path = require("path");
 
 exports.getStatus = function(req, res){
     storageModel.find({}, function(err, foundStorages){
@@ -20,4 +21,8 @@ exports.postStatus = function(req, res){
             res.redirect("/");
         }
     });
+}
+
+exports.getHome = function(req, res){
+    res.render(path.join(__dirname, "../views/home"));
 }
