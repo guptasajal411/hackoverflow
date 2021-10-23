@@ -8,6 +8,11 @@ app
     .route("/")
     .get(storageController.getHome)
     .post(kisaanController.postLogin);
+
+app.
+    route("/kisaan")
+    .get(kisaanController.getKisaan)
+    .post(kisaanController.postKisaan)
 app
     .route("/status")
     .get(storageController.getStatus)

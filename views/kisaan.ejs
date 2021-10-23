@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome, <%= kisaan.email %></h1>
+    <% kisaan.yeild.forEach(function(crop){ %>
+        <h3><%= crop.cropName %></h3>
+        <h6><%= crop.quantity %> + kgs</h6>
+        <hr>
+    <% }); %>
+    <form action="/kisaan" method="POST">
+        <input type="text" name="cropName" required placeholder="Crop name">
+        <input type="number" name="quantity" required placeholder="Quantity">
+        <button name="email" value="<%= kisaan.email %>" type="submit">Submit</button>
+    </form>
+</body>
+</html>

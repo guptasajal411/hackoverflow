@@ -5,6 +5,7 @@ mongoose.connect("mongodb+srv://" + process.env.usernameMongoDB + ":" + process.
 
 const kisaanSchema = new mongoose.Schema({
     email: String,
+    password: String,
     yeild: [{
         cropName: String,
         quantity: Number
