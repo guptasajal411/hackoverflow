@@ -10,7 +10,7 @@
     <h1>Welcome, <%= kisaan.email %></h1>
     <% kisaan.yeild.forEach(function(crop){ %>
         <h3><%= crop.cropName %></h3>
-        <h6><%= crop.quantity %> + kgs</h6>
+        <h6><%= crop.quantity %> kgs</h6>
         <hr>
     <% }); %>
     <form action="/kisaan" method="POST">

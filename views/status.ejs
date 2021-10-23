@@ -14,6 +14,7 @@
         <p>available storage: <%= storage.availableStorage %></p>
     <% }); %>
     <form action="/status" method="POST">
+        <input type="text" name="storageName" required placeholder="Storage name">
         <input name="availableStorage" type="number" placeholder="change available storage">
     <button type="submit">Submit!</button>
     </form>

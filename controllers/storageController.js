@@ -12,7 +12,7 @@ exports.getStatus = function(req, res){
 }
 
 exports.postStatus = function(req, res){
-    storageModel.findOne({storageName: "rajasthan storage"}, async function(err, foundStorage){
+    storageModel.findOne({storageName: req.body.storageName}, async function(err, foundStorage){
         if (err){
             res.send(err);
         } else {

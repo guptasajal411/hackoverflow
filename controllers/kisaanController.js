@@ -32,6 +32,16 @@ exports.getKisaan = function(req, res) {
 }
 
 exports.postKisaan = function(req, res) {
-    console.log(req.body);
-    res.redirect("/");
+    Kisaan.findOne({ email: req.body.email}, async function(err, foundKisaan){
+        if (err) {
+            res.send(err);
+        } else {
+            foundKisaan.yeild.push({
+                cropName: req.body.cropName,
+                quantity: req.body.quantity
+            });
+            await foundKisaan.save();
+            res.redirect("/");
+        }
+    });
 }
