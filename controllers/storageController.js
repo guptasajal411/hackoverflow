@@ -1,4 +1,5 @@
 const storageModel = require("../models/storageModel.js");
+const Kisaan = require("../models/kisaanModel");
 const path = require("path");
 
 exports.getStatus = function(req, res){
@@ -6,7 +7,7 @@ exports.getStatus = function(req, res){
         if (err){
             res.send(err);
         } else {
-            res.render("status.ejs", {foundStorages: foundStorages});
+            res.render("status.ejs", { foundStorages: foundStorages });
         }
     });
 }
@@ -19,8 +20,20 @@ exports.postStatus = function(req, res){
             foundStorage.availableStorage = req.body.availableStorage;
             await foundStorage.save();
             res.redirect("/status");
+            Kisaan.find({}, function(err, foundKisaan){
+                if (err) {
+                    res.send(err);
+                } else {
+                    foundKisaan.yeild.forEach(function(crop){
+                        if (crop.quantity < req.body.availableStorage){
+                            // send notification to kisaan
+                        }
+                    })
+                }
+            })
         }
     });
+
 }
 
 exports.getHome = function(req, res){

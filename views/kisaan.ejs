@@ -18,5 +18,11 @@
         <input type="number" name="quantity" required placeholder="Quantity">
         <button name="email" value="<%= kisaan.email %>" type="submit">Submit</button>
     </form>
+    <h1>Cold storage status</h1>
+    <% foundStorages.forEach(function(storage){ %>
+        <h2><%= storage.storageName %></h2>
+        <p>total storage: <%= storage.totalStorage %></p>
+        <p>available storage: <%= storage.availableStorage %></p>
+    <% }); %>
 </body>
 </html>

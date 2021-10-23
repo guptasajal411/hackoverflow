@@ -1,12 +1,13 @@
 const md5 = require('md5');
 const Kisaan = require("../models/kisaanModel");
+const storageModel = require("../models/storageModel.js");
 
-exports.postLogin = function(req, res){
-    Kisaan.findOne({email: req.body.email}, async function(err, foundKisaan){
+exports.postLogin = function (req, res) {
+    Kisaan.findOne({ email: req.body.email }, async function (err, foundKisaan) {
         if (err) {
             res.send(err);
         } else {
-            if (foundKisaan == null){
+            if (foundKisaan == null) {
                 console.log("kisaan not found");
                 const newKisaan = new Kisaan({
                     email: req.body.email,
@@ -17,8 +18,14 @@ exports.postLogin = function(req, res){
                 res.redirect("/");
             } else {
                 console.log("kisaan found: " + foundKisaan);
-                if (md5(req.body.password) == foundKisaan.password){
-                    res.render("kisaan", { kisaan: foundKisaan });
+                if (md5(req.body.password) == foundKisaan.password) {
+                    storageModel.find({}, function (err, foundStorages) {
+                        if (err) {
+                            res.send(err);
+                        } else {
+                            res.render("kisaan", { kisaan: foundKisaan, foundStorages: foundStorages });
+                        }
+                    });
                 } else {
                     res.send("wrong password");
                 }
@@ -27,12 +34,12 @@ exports.postLogin = function(req, res){
     });
 }
 
-exports.getKisaan = function(req, res) {
+exports.getKisaan = function (req, res) {
     res.render("kisaan");
 }
 
-exports.postKisaan = function(req, res) {
-    Kisaan.findOne({ email: req.body.email}, async function(err, foundKisaan){
+exports.postKisaan = function (req, res) {
+    Kisaan.findOne({ email: req.body.email }, async function (err, foundKisaan) {
         if (err) {
             res.send(err);
         } else {
