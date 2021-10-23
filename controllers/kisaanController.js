@@ -10,6 +10,7 @@ exports.postLogin = function (req, res) {
             if (foundKisaan == null) {
                 console.log("kisaan not found");
                 const newKisaan = new Kisaan({
+                    name: req.body.name,
                     email: req.body.email,
                     password: md5(req.body.password)
                 });

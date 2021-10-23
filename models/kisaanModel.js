@@ -4,6 +4,7 @@ require('dotenv').config();
 mongoose.connect("mongodb+srv://" + process.env.usernameMongoDB + ":" + process.env.password + "@cluster0.xgjts.mongodb.net/hackoverflowDB");
 
 const kisaanSchema = new mongoose.Schema({
+    name: String,
     email: String,
     password: String,
     yeild: [{
