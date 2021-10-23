@@ -1,7 +1,8 @@
-const CourierClient = require("@trycourier/courier").default;
 const storageModel = require("../models/storageModel.js");
 const Kisaan = require("../models/kisaanModel");
 const path = require("path");
+// const nodemailer = require('nodemailer');
+const { CourierClient } = require("@trycourier/courier");
 
 exports.getStatus = function (req, res) {
     storageModel.find({}, function (err, foundStorages) {
@@ -20,31 +21,38 @@ exports.postStatus = function (req, res) {
         } else {
             foundStorage.availableStorage = req.body.availableStorage;
             await foundStorage.save();
-            const courier = CourierClient({ authorizationToken: process.env.AUTH_TOKEN });
-            const { messageId } = await courier.send({
-                brand: "1M05TH69ZW4HQBN1BZDN6HWX9HPA",
-                eventId: "KMHX6KM7WAMFX5Q9NMAHE9WQW0RR",
-                recipientId: "f479e483-0174-4d5a-94ea-71307001b70b",
-                profile: {
-                    email: "priyankaafssulur@gmail.com",
-                },
-                data: {
-                },
-                override: {
-                },
-            });
             res.redirect("/status");
-            // Kisaan.find({}, function (err, foundKisaan) {
-            //     if (err) {
-            //         res.send(err);
-            //     } else {
-            //         foundKisaan.yeild.forEach(async function (crop) {
-            //             if (crop.quantity < req.body.availableStorage) {
-            //                 // send notification to kisaan
-            //             }
-            //         });
-            //     }
-            // });
+            Kisaan.find({}, function (err, foundKisaan) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    if (foundKisaan) {
+                        foundKisaan.forEach(function (kisaan) {
+                            kisaan.yeild.forEach(async function (crop) {
+                                if (crop.cropName == req.body.storageName) {
+                                    if (crop.quantity < req.body.availableStorage) {
+                                        const courier = CourierClient({ authorizationToken: process.env.AUTH_TOKEN });
+                                        const { messageId } = await courier.send({
+                                            brand: "1M05TH69ZW4HQBN1BZDN6HWX9HPA",
+                                            eventId: "67F4VDDBR3MJPYKYMJ1B2ANFN5A6",
+                                            recipientId: "95298f93-0ee3-4650-9c10-e57482a2c1c3",
+                                            profile: {
+                                                email: process.env.email,
+                                            },
+                                            data: {
+                                            },
+                                            override: {
+                                            },
+                                        });
+                                    }
+                                }
+                            });
+                        });
+                    } else {
+                        console.log("no kisaan found");
+                    }
+                }
+            });
         }
     });
 }
