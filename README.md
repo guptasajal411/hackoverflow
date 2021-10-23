@@ -31,7 +31,7 @@ To start contributing, follow the below guidelines:
 
 🌟 Star the project to bookmark and appreciate the work.
 
-"newXplorer" welcomes everyone to contribute to this project. Make sure you read the guidelines mentioned [here](https://github.com/devstrons/newXplorer/blob/main/CONTRIBUTING.md).
+"Agrobox" welcomes everyone to contribute to this project. Make sure you read the guidelines mentioned [here](https://github.com/devstrons/newXplorer/blob/main/CONTRIBUTING.md).
 
 <h2 align="center" style="font-weight:bold">🤝 Community</h2>
 <p align="center">
