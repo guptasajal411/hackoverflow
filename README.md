@@ -3,7 +3,7 @@
     <img style="margin: 0 0 0 60px" src=" " alt="AGRIMOTOR"/>
 </p>
 <div align="center">
-<h2>AGRIMOTOR One Step Solution <h2>
+<h2>AGROWBOX One Step Solution <h2>
 </div>
 
 ## Inspiration:
@@ -16,7 +16,6 @@ To overcome this major problem description, we came up with an idea to get the i
 Being under the hackathon, we create a web application i.e., integrates with the APIs are as follows
 
 - **courier API** For sending notification to the farmers.
-- **Weather API** to monitor the Weather of the location.
 - **SAWO API** for authentication.
 
 ## How we built it?
@@ -45,8 +44,8 @@ Head over to <a href="https://discord.gg/MVujzTBqed" >discord</a>.
 We're thanking all the amazing cotributors for their time & efforts.
 </p>
 <p align="center">
-<a href="https://github.com/devstrons/guptasajal411/hackoverflow/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=devstrons/newsXplorer" />
+<a href="https://github.com/guptasajal411/hackoverflow/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=guptasajal411/hackoverflow" />
 </a>
 </p>
 
