@@ -13,24 +13,24 @@ exports.getStatus = function(req, res){
 }
 
 exports.postStatus = function(req, res){
-    storageModel.findOne({storageName: req.body.storageName}, async function(err, foundStorage){
+    storageModel.findOne({ storageName: req.body.storageName }, async function(err, foundStorage){
         if (err){
             res.send(err);
         } else {
             foundStorage.availableStorage = req.body.availableStorage;
             await foundStorage.save();
             res.redirect("/status");
-            Kisaan.find({}, function(err, foundKisaan){
-                if (err) {
-                    res.send(err);
-                } else {
-                    foundKisaan.yeild.forEach(function(crop){
-                        if (crop.quantity < req.body.availableStorage){
-                            // send notification to kisaan
-                        }
-                    })
-                }
-            })
+            // Kisaan.find({}, function(err, foundKisaan){
+            //     if (err) {
+            //         res.send(err);
+            //     } else {
+            //         foundKisaan.yeild.forEach(function(crop){
+            //             if (crop.quantity < req.body.availableStorage){
+            //                 // send notification to kisaan
+            //             }
+            //         });
+            //     }
+            // });
         }
     });
 
