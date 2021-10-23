@@ -24,5 +24,5 @@ exports.postStatus = function(req, res){
 }
 
 exports.getHome = function(req, res){
-    res.render(path.join(__dirname, "../views/home"));
+    res.render(path.join(__dirname, "../views/index"));
 }
