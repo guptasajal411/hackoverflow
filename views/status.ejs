@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/kisaan.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>hello</h1>
-    <% foundStorages.forEach(function(storage){ %>
-        <h2><%= storage.storageName %></h2>
-        <p>total storage: <%= storage.totalStorage %></p>
-        <p>available storage: <%= storage.availableStorage %></p>
-    <% }); %>
-    <form action="/status" method="POST">
-        <input type="text" name="storageName" required placeholder="Storage name">
-        <input name="availableStorage" type="number" placeholder="change available storage">
-    <button type="submit">Submit!</button>
-    </form>
+    <div class="centerContainer">
+        <h1>Welcome to Cold Storage!</h1>
+        <div class="container">
+            <div class="row justify-content-center">
+                <% foundStorages.forEach(function(storage){ %>
+                    <div class="col-3 card m-2">
+                        <div class="card-body">
+                            <h2><%= storage.storageName %></h2>
+                            <p>total storage: <%= storage.totalStorage %></p>
+                            <p>available storage: <%= storage.availableStorage %></p>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+            <form action="/status" method="POST">
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Storage name</span>
+                    <input name="storageName" required type="text" class="form-control me-2" placeholder="Storage name" aria-label="Storage name" aria-describedby="basic-addon1">
+                    <span class="input-group-text ms-2" id="basic-addon1">Change available storage</span>
+                    <input name="availableStorage" required type="number" class="form-control me-2" placeholder="Change available storage" aria-label="Change available storage" aria-describedby="basic-addon1">
+                    <button class="ms-2 btn btn-primary"type="submit">Submit!</button>
+                </div>
+            </form>
+    </div>
 </body>
 </html>
