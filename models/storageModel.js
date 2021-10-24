@@ -14,7 +14,7 @@ const Storage = new mongoose.model("Storage", storageSchema);
 // const newStorage = new Storage({
 //     totalStorage: 1000,
 //     availableStorage: 900,
-//     storageName: "rice storage"
+//     storageName: "onion storage"
 // })
 
 // newStorage.save();
