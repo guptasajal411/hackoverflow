@@ -18,6 +18,9 @@ Being under the hackathon, we create a web application i.e., integrates with the
 - **courier API** For sending notification to the farmers.
 - **SAWO API** for authentication.
 
+After registering which Agribox one need to submit what quantity of crop stoage is avaliable with them then if the storage capacity is not avaliable then whenever there is avaliablitly of the storage then it will send the notification to the user that there is space avaliable in the cold storage.
+The updataion of the avaliable storage can only be done by the admin not the customer. 
+    
 ## How we built it?
 <code><a href="#"><img height="40" width="40" src="https://raw.githubusercontent.com/devstrons/newsXplorer/master/static/assets/img/html.png"></a></code>
 <code><a href="#"><img height="40" width="45" src="https://cdn.iconscout.com/icon/free/png-256/figma-682083.png"></a></code>
